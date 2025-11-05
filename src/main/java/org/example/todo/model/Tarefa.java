@@ -5,25 +5,17 @@ import java.util.Objects;
 public class Tarefa {
 
     private final int id;
-    private String descricao;
     private Status status;
+    private String descricao;
 
-    public Tarefa(int id, String descricao, Status status) {
+    public Tarefa(int id, Status status, String descricao) {
         this.id = id;
-        this.descricao = descricao;
         this.status = status;
+        this.descricao = descricao;
     }
 
     public int getId() {
         return id;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
     }
 
     public Status getStatus() {
@@ -34,11 +26,20 @@ public class Tarefa {
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return String.format("[#%d] (%s) %s", id, descricao, status);
+    public String getDescricao() {
+        return descricao;
     }
 
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("[#%d] (%s) %s", id, status, descricao);
+    }
+
+    //Ainda não domino, por isso os comentários
     @Override
     public boolean equals(Object o) {
         // se for o mesmo objeto na memória, já é igual
@@ -59,6 +60,10 @@ public class Tarefa {
         // gera um hash só com base no id
         // usado por HashSet/HashMap pra evitar duplicado
         return Objects.hash(id);
+    }
+
+    public String toCsvString() {
+        return String.format("%d;%s;%s", id, status, descricao);
     }
 
 }
