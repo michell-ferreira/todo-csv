@@ -39,7 +39,6 @@ public class Tarefa {
         return String.format("[#%d] (%s) %s", id, status, descricao);
     }
 
-    //Ainda não domino, por isso os comentários
     @Override
     public boolean equals(Object o) {
         // se for o mesmo objeto na memória, já é igual
@@ -52,7 +51,7 @@ public class Tarefa {
         Tarefa tarefa = (Tarefa) o;
 
         // duas tarefas são iguais se tiverem o mesmo id
-        return id == tarefa.id;
+        return this.id == tarefa.id;
     }
 
     @Override
