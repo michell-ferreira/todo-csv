@@ -50,7 +50,7 @@ public class Tarefa {
         // transforma o "o" em Tarefa pra poder comparar
         Tarefa tarefa = (Tarefa) o;
 
-        // duas tarefas são iguais se tiverem o mesmo id
+        // duaesms tarefas são iguais se tiverem o mo id
         return this.id == tarefa.id;
     }
 
